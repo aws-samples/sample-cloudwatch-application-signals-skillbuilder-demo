@@ -1,0 +1,100 @@
+# IDE specific files
+.idea/
+.vscode/
+*.sublime-workspace
+*.sublime-project
+.settings/
+.project
+.classpath
+
+# Operating System files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Compiled source
+*.com
+*.class
+*.dll
+*.exe
+*.o
+*.so
+*.pyc
+*.pyo
+
+# Packages and Dependencies
+node_modules/
+bower_components/
+vendor/
+.env
+.env.local
+.env.*.local
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Build output
+dist/
+build/
+out/
+target/
+*.jar
+*.war
+*.ear
+
+# Logs and databases
+*.log
+*.sql
+*.sqlite
+*.db
+
+# Coverage and test reports
+coverage/
+.coverage
+.pytest_cache/
+htmlcov/
+.tox/
+.nox/
+
+# Temporary files
+*.swp
+*.swo
+*~
+*.bak
+*.tmp
+temp/
+tmp/
+
+# Maven
+target/
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.versionsBackup
+pom.xml.next
+release.properties
+
+# Gradle
+.gradle/
+build/
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+.Python
+env/
+venv/
+ENV/
+
+### Build and Deployment files
+kubernetes/
+cluster.yaml
+order-api-dynamodb-policy.json
+delivery-api-policy.json
+.cluster-config/
+old_scripts/
+*.bk

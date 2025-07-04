@@ -1,0 +1,50 @@
+digraph INFRA {
+  node [ color = "black", fillcolor = "#E6E6E6", height =1, style = "filled,bold,rounded", fontname = "Arial" ];
+  "EKS Cluster" [ label = "EKS Cluster
+(AWS::EKS::Cluster)", shape =rectangle, fillcolor = "#B7E0FF" ];
+  "EKS Managed Node Group" [ label = "EKS Managed Node Group
+(AWS::EKS::NodeGroup)", shape =rectangle, fillcolor = "#B7E0FF" ];
+  "DynamoDB Table" [ label = "DynamoDB Table
+(AWS::DynamoDB::Table)", shape =cylinder, fillcolor = "#FFCFB3" ];
+  "Order API IAM Policy" [ label = "Order API IAM Policy
+(AWS::IAM::Policy)", shape =rectangle ];
+  "Delivery API IAM Policy" [ label = "Delivery API IAM Policy
+(AWS::IAM::Policy)", shape =rectangle ];
+  "Order API Service Account" [ label = "Order API Service Account
+(AWS::EKS::ServiceAccount)", shape =rectangle ];
+  "Delivery API Service Account" [ label = "Delivery API Service Account
+(AWS::EKS::ServiceAccount)", shape =rectangle ];
+  "Order API ECR Repository" [ label = "Order API ECR Repository
+(AWS::ECR::Repository)", shape =cylinder, fillcolor = "#FFF5CD" ];
+  "Delivery API ECR Repository" [ label = "Delivery API ECR Repository
+(AWS::ECR::Repository)", shape =cylinder, fillcolor = "#FFF5CD" ];
+  "Order API Deployment" [ label = "Order API Deployment
+(AWS::EKS::Deployment)", shape =rectangle, fillcolor = "#B7E0FF" ];
+  "Delivery API Deployment" [ label = "Delivery API Deployment
+(AWS::EKS::Deployment)", shape =rectangle, fillcolor = "#B7E0FF" ];
+  "Order API Service" [ label = "Order API Service
+(AWS::EKS::Service)", shape =rectangle, fillcolor = "#B7E0FF" ];
+  "Delivery API Service" [ label = "Delivery API Service
+(AWS::EKS::Service)", shape =rectangle, fillcolor = "#B7E0FF" ];
+  "CloudWatch Application Signals Service-Linked Role" [ label = "CloudWatch Application Signals Service-Linked Role
+(AWS::IAM::ServiceLinkedRole)", shape =rectangle ];
+  "CloudWatch Agent Service Account" [ label = "CloudWatch Agent Service Account
+(AWS::EKS::ServiceAccount)", shape =rectangle ];
+  "CloudWatch Observability EKS Add-on" [ label = "CloudWatch Observability EKS Add-on
+(AWS::EKS::Addon)", shape =rectangle ];
+  "EKS Managed Node Group" -> "EKS Cluster";
+  "Order API Service Account" -> "EKS Cluster";
+  "Order API Service Account" -> "Order API IAM Policy";
+  "Delivery API Service Account" -> "EKS Cluster";
+  "Delivery API Service Account" -> "Delivery API IAM Policy";
+  "Order API Deployment" -> "EKS Cluster";
+  "Order API Deployment" -> "Order API Service Account";
+  "Order API Deployment" -> "Order API ECR Repository";
+  "Delivery API Deployment" -> "EKS Cluster";
+  "Delivery API Deployment" -> "Delivery API Service Account";
+  "Delivery API Deployment" -> "Delivery API ECR Repository";
+  "Order API Service" -> "Order API Deployment";
+  "Delivery API Service" -> "Delivery API Deployment";
+  "CloudWatch Agent Service Account" -> "EKS Cluster";
+  "CloudWatch Observability EKS Add-on" -> "EKS Cluster";
+}
