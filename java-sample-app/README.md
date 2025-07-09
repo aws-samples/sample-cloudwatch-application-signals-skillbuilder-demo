@@ -52,24 +52,28 @@ java-sample-app/
 
 ## Quick Start
 
-### 1. Deploy Infrastructure
+### 1. Navigate to Java Sample
 ```bash
 cd java-sample-app
+```
+
+### 2. Deploy Infrastructure
+```bash
 ./scripts/1-create-env.sh --region us-east-2
 ```
 
-### 2. Build and Deploy Application
+### 3. Build and Deploy Application
 ```bash
 ./scripts/2-build-deploy-app.sh
 ```
 
-### 3. Configure Monitoring
+### 4. Configure Monitoring
 ```bash
 ./scripts/3-setup-cloudwatch-agent.sh
 ./scripts/4-annotate-wokloads.sh
 ```
 
-### 4. Generate Test Traffic
+### 5. Generate Test Traffic
 ```bash
 ./scripts/5-generate-load.sh
 ```
@@ -131,6 +135,8 @@ This sample demonstrates:
 - **CloudWatch**: Application Signals, Container Insights, and logging
 
 ## Cleanup
+
+From the `java-sample-app` directory:
 
 Remove application resources (keep infrastructure):
 ```bash
