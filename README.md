@@ -1,206 +1,99 @@
-# Java-based Microservices Application with AWS Infrastructure Automation
+# CloudWatch Application Signals Sample Applications
 
-A containerized Java microservices application demonstrating order processing and delivery management with automated AWS infrastructure deployment, monitoring, and load testing capabilities.
+A collection of sample applications demonstrating AWS CloudWatch Application Signals across different programming languages and runtimes. These samples are designed for AWS SkillBuilder courses and provide hands-on experience with observability, monitoring, and distributed tracing.
 
-This project implements a scalable microservices architecture using Spring Boot with two main services: Order API and Delivery API. The application leverages AWS services including EKS for container orchestration, DynamoDB for data persistence, ECR for container registry, and CloudWatch for monitoring and observability. The entire infrastructure is automated through shell scripts, making it easy to deploy, test, and clean up resources.
+## Overview
 
-The application features automated deployment to AWS EKS, integrated monitoring with CloudWatch, IAM role-based security, and a load testing framework. It demonstrates best practices for cloud-native applications including containerization, infrastructure as code, and observability.
+CloudWatch Application Signals automatically instruments your applications to collect and correlate metrics, traces, and logs, providing deep insights into application performance and health. This repository contains sample applications that demonstrate these capabilities across various technology stacks.
+
+## Available Sample Applications
+
+### ✅ Java
+**Status**: Available  
+**Path**: [`java-sample-app/`](./java-sample-app/)  
+**Description**: Spring Boot microservices application with Order API and Delivery API, deployed on Amazon EKS with DynamoDB integration.
+
+### 🚧 Python
+**Status**: Coming Soon  
+**Path**: `python-sample-app/` (planned)  
+**Description**: Flask/FastAPI microservices application demonstrating CloudWatch Application Signals with Python runtime.
+
+### 🚧 .NET
+**Status**: Coming Soon  
+**Path**: `dotnet-sample-app/` (planned)  
+**Description**: ASP.NET Core microservices application showcasing CloudWatch Application Signals integration.
+
+### 🚧 Node.js
+**Status**: Coming Soon  
+**Path**: `nodejs-sample-app/` (planned)  
+**Description**: Express.js microservices application with CloudWatch Application Signals instrumentation.
+
+## Getting Started
+
+1. **Choose your runtime**: Navigate to the appropriate sample application folder
+2. **Follow the README**: Each sample includes detailed setup and deployment instructions
+3. **Deploy and explore**: Use the provided scripts to deploy infrastructure and generate sample data
+4. **Monitor with CloudWatch**: Observe metrics, traces, and logs in the AWS Console
+
+## Common Prerequisites
+
+All sample applications require:
+- AWS CLI configured with appropriate permissions
+- AWS account with CloudWatch Application Signals enabled
+- Docker installed and running
+- kubectl and eksctl for Kubernetes deployments
 
 ## Repository Structure
+
 ```
 .
-├── delivery-api/                 # Delivery service implementation
-│   ├── Dockerfile               # Container image definition for delivery service
-│   ├── pom.xml                  # Maven configuration for delivery service
-│   └── src/                     # Source code for delivery service
-├── order-api/                   # Order service implementation
-│   ├── Dockerfile              # Container image definition for order service
-│   ├── pom.xml                 # Maven configuration for order service
-│   └── src/                    # Source code for order service
-├── scripts/                    # Infrastructure automation scripts
-│   ├── 1-create-env.sh        # Creates EKS cluster and required AWS resources
-│   ├── 2-build-deploy-app.sh  # Builds and deploys applications to EKS
-│   ├── 3-setup-cloudwatch-agent.sh  # Configures CloudWatch monitoring
-│   ├── 4-annotate-wokloads.sh # Configures OpenTelemetry instrumentation
-│   ├── 5-generate-load.sh     # Load testing utility
-│   ├── 6-build-cleanup.sh     # Removes application resources
-│   ├── 7-cleanup-env.sh       # Removes all created AWS resources
-│   └── traffic-generator/     # Load testing components
-│       ├── deployment.yaml    # Kubernetes deployment configuration
-│       ├── Dockerfile        # Container image definition for load generator
-│       └── traffic-generator.sh  # Load generation script
-└── pom.xml                    # Parent Maven configuration
+├── README.md                    # This landing page
+├── LICENSE                      # Repository license
+├── CODE_OF_CONDUCT.md          # Community guidelines
+├── CONTRIBUTING.md             # Contribution guidelines
+├── java-sample-app/            # Java Spring Boot sample
+├── python-sample-app/          # Python sample (coming soon)
+├── dotnet-sample-app/          # .NET sample (coming soon)
+└── nodejs-sample-app/          # Node.js sample (coming soon)
 ```
 
-## Usage Instructions
-### Prerequisites
-- AWS CLI configured with appropriate credentials
-- kubectl installed and configured
-- eksctl installed
-- Docker installed and running
-- jq command-line JSON processor
-- Maven 3.6+ 
-- Java 21
-- AWS account with permissions to create:
-  - EKS clusters
-  - DynamoDB tables
-  - IAM roles and policies
-  - ECR repositories
-  - CloudWatch resources
+## Key Features Demonstrated
 
-### Installation
+Each sample application showcases:
 
-1. Clone the repository:
-```bash
-git clone <repository-url>
-cd <repository-directory>
-```
+- **Automatic Instrumentation**: Zero-code observability with CloudWatch Application Signals
+- **Distributed Tracing**: End-to-end request tracking across microservices
+- **Custom Metrics**: Application-specific performance indicators
+- **Service Maps**: Visual representation of service dependencies
+- **Anomaly Detection**: Automated identification of performance issues
+- **Alerting**: Proactive notifications based on application health
 
-2. Create the AWS infrastructure:
-```bash
-./scripts/1-create-env.sh --region us-east-2
-```
+## AWS Services Used
 
-3. Build and deploy the application:
-```bash
-./scripts/2-build-deploy-app.sh
-```
+- **Amazon CloudWatch**: Application Signals, Container Insights, Logs
+- **Amazon EKS**: Kubernetes container orchestration
+- **Amazon DynamoDB**: NoSQL database for application data
+- **Amazon ECR**: Container image registry
+- **AWS IAM**: Identity and access management
+- **AWS X-Ray**: Distributed tracing (integrated with Application Signals)
 
-4. Set up CloudWatch monitoring:
-```bash
-./scripts/3-setup-cloudwatch-agent.sh
-```
+## Learning Path
 
-5. Enable OpenTelemetry instrumentation:
-```bash
-./scripts/4-annotate-wokloads.sh
-```
+1. **Start with Java**: Most comprehensive example with detailed documentation
+2. **Explore other runtimes**: Compare implementation patterns across languages
+3. **Customize and extend**: Modify samples to match your use cases
+4. **Apply to production**: Use patterns learned in your own applications
 
-6. Generate test load:
-```bash
-./scripts/5-generate-load.sh
-```
+## Support and Feedback
 
-7. To clean up the application (keeping infrastructure):
-```bash
-./scripts/6-build-cleanup.sh
-```
+- **Issues**: Report bugs or request features via GitHub Issues
+- **Discussions**: Join community discussions for questions and best practices
+- **Contributions**: See [CONTRIBUTING.md](./CONTRIBUTING.md) for guidelines
 
-8. To remove all AWS infrastructure:
-```bash
-./scripts/7-cleanup-env.sh --region us-east-2
-```
+## License
 
-Note: Scripts should be run in the order shown above. The cleanup scripts (6 and 7) should only be run when you want to remove resources.
+This project is licensed under the MIT-0 License. See [LICENSE](./LICENSE) file for details.
 
-### Quick Start
-1. After deployment, get the service endpoints:
-```bash
-kubectl get svc
-```
+---
 
-2. Test the Order API:
-```bash
-curl -X POST http://<order-api-endpoint>/api/orders \
-  -H "Content-Type: application/json" \
-  -d '{
-    "orderId": "123",
-    "customerName": "John Doe",
-    "items": [{
-      "productId": "456",
-      "quantity": 1,
-      "price": 29.99
-    }],
-    "totalAmount": 29.99,
-    "shippingAddress": "123 Main St"
-  }'
-```
-
-### More Detailed Examples
-1. Remove the load generator:
-```bash
-# Remove only traffic generator to stop increasing dynamodb table size
-./scripts/6-build-cleanup.sh --traffic-only
-```
-
-### Troubleshooting
-1. Pod startup issues:
-```bash
-kubectl describe pod <pod-name>
-kubectl logs <pod-name>
-```
-
-2. Service connectivity issues:
-```bash
-# Check service endpoints
-kubectl get endpoints
-
-# Check service logs
-kubectl logs -l app=java-order-api
-kubectl logs -l app=java-delivery-api
-```
-
-3. DynamoDB access issues:
-- Verify IAM role assignments:
-```bash
-kubectl describe serviceaccount <service-account-name>
-```
-- Check CloudWatch logs for permissions errors
-
-## Data Flow
-The application processes orders through a two-service architecture where the Order API receives orders and forwards them to the Delivery API for fulfillment and storage in DynamoDB.
-
-```ascii
-[Client] -> [Order API] -> [Delivery API] -> [DynamoDB]
-   |            |              |                |
-   |            |              |                |
-   +------------+--------------+----------------+
-          CloudWatch Monitoring & Logging
-```
-
-Component interactions:
-1. Client sends order request to Order API
-2. Order API validates and forwards request to Delivery API
-3. Delivery API processes order and stores in DynamoDB
-4. Both services use IAM roles for AWS service access
-5. CloudWatch monitors all components and collects metrics
-6. Load balancer distributes traffic across service replicas
-7. Service mesh handles inter-service communication
-
-## Infrastructure
-
-![Infrastructure diagram](./docs/infra.svg)
-
-The infrastructure consists of the following components:
-
-- EKS Cluster:
-  - Managed node group with t3.large instances
-  - VPC-CNI, CoreDNS, and kube-proxy addons
-  - EKS version 1.33
-
-- DynamoDB:
-  - Table: orders-catalog
-  - Partition key: Id (String)
-  - Provisioned capacity: 1 RCU, 1 WCU
-
-- IAM:
-  - Service accounts for Order and Delivery APIs
-  - Policies for DynamoDB access
-  - CloudWatch agent role
-  - CloudWatch Application Signals Service-Linked Role
-
-- Container Registry:
-  - ECR repositories for Order and Delivery APIs
-  - ECR repository for traffic generator
-
-- CloudWatch:
-  - Container Insights enabled
-  - Application Signals configured
-  - Fluent Bit for container logs
-  - CloudWatch Observability EKS Add-on
-
-- Kubernetes Resources:
-  - Order API Deployment and Service (LoadBalancer)
-  - Delivery API Deployment and Service (ClusterIP)
-  - Traffic Generator Deployment
-  - CloudWatch Agent Service Account
+**Note**: This repository is actively maintained and new runtime samples are added regularly. Star the repository to stay updated with new releases.
