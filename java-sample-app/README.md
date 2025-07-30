@@ -1,6 +1,8 @@
 # Java Sample Application - CloudWatch Application Signals
 
-A containerized Java microservices application demonstrating AWS CloudWatch Application Signals with Spring Boot. This sample showcases order processing and delivery management with automated AWS infrastructure deployment, monitoring, and observability.
+A containerized Java microservices application demonstrating Amazon CloudWatch Application Signals with Spring Boot. This sample showcases order processing and delivery management with automated AWS infrastructure deployment, monitoring, and observability.
+
+### Take the AWS Skill Builder course: [Monitor Java Application using CloudWatch Application Signals](https://skillbuilder.aws/learn/PMCTXKYK1Y/monitor-java-applications-using-amazon-cloudwatch-application-signals/15ZK4ETKE9)
 
 ## Architecture Overview
 
@@ -71,6 +73,8 @@ cd java-sample-app
 ```bash
 ./scripts/3-setup-cloudwatch-agent.sh
 ./scripts/4-annotate-wokloads.sh
+kubectl apply -f kubernetes/order-api-deployment.yaml 
+kubectl apply -f kubernetes/delivery-api-deployment.yaml
 ```
 
 ### 5. Generate Test Traffic
