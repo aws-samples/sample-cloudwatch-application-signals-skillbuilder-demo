@@ -15,26 +15,100 @@ git clone https://github.com/aws-samples/dotnet-observability-cloudwatch-applica
 cd dotnet-observability-cloudwatch-application-signals
 ```
 
-### 2. Follow the Setup Instructions
+### 2. AWS SkillBuilder Course
 
-The repository contains automated scripts for easy deployment. Navigate to the scripts directory and follow the step-by-step process:
+Try out this AWS SkillBuilder course to Monitor .NET Applications using CloudWatch Application Signals:
+[Monitor .NET Applications using Amazon CloudWatch Application Signals](https://skillbuilder.aws/learn/255DDEDPV5/monitor-net-applications-using-amazon-cloudwatch-application-signals/1WZ1NT16HJ)
+
+### 3. Deployment Steps
+
+#### Step 1: Create EKS Environment
+
+This step creates the EKS cluster, DynamoDB table, and required IAM roles:
 
 ```bash
-cd scripts
+chmod +x scripts/create-eks-env.sh
+./scripts/create-eks-env.sh --region <your-aws-region>
 ```
 
-**Deployment Steps:**
+#### Step 2: Build and Deploy Application
 
-1. **Create Infrastructure**: `./1-create-env.sh --region us-east-2`
-2. **Build and Deploy**: `./2-build-deploy-app.sh`
-3. **Setup Monitoring**: `./3-setup-cloudwatch-agent.sh`
-4. **Configure Instrumentation**: `./4-annotate-workloads.sh`
-5. **Generate Test Traffic**: `./5-generate-load.sh`
+Make script executable and build and deploy application:
 
-**Cleanup Steps:**
+```bash
+chmod +x scripts/build-deploy.sh
+./scripts/build-deploy.sh --region <your-aws-region>
+```
 
-- **Remove Application**: `./6-build-cleanup.sh`
-- **Remove Infrastructure**: `./7-cleanup-env.sh --region us-east-2`
+#### Step 3: Install Amazon CloudWatch Observability EKS add-on
+
+Install the addon using the below script:
+
+```bash
+chmod +x scripts/setup-cloudwatch-agent.sh
+./scripts/setup-cloudwatch-agent.sh
+```
+
+#### Step 4: Annotate the Workload
+
+Run the below script to add annotation under the `PodTemplate` section in order to inject auto-instrumentation agent:
+
+```bash
+chmod +x scripts/annotate-workloads.sh
+./scripts/annotate-workloads.sh
+```
+
+#### Step 5: Restart pods
+
+Run the below commands to restart application pods in order for new changes to take effect:
+
+```bash
+kubectl apply -f kubernetes/cart-deployment.yaml 
+kubectl apply -f kubernetes/delivery-deployment.yaml 
+```
+
+Wait for 2min for new pods to attain `Running` status
+
+#### Step 6: Test the application deployment
+
+You can test and generate load on the application by running the below script. Keep the script running for ~2min:
+
+```bash
+chmod +x scripts/load-generator.sh
+./scripts/load-generator.sh 
+```
+
+#### Step 7: Monitor .NET applications using CloudWatch Application Signals
+
+Check AWS Application Signals:
+
+- Open [Amazon CloudWatch Console](https://console.aws.amazon.com/cloudwatch/)
+- Navigate to CloudWatch Application Signals from the left hand side navigation pane
+
+#### Step 8: Cleanup
+
+To remove all created resources run the below scripts:
+
+```bash    
+chmod +x scripts/build-cleanup.sh
+chmod +x scripts/cleanup-eks-env.sh
+./scripts/build-cleanup.sh
+./scripts/cleanup-eks-env.sh
+```
+
+### Troubleshooting
+
+1. Check pod status:
+```bash
+kubectl get pods
+kubectl describe pod <pod-name>
+```
+
+2. View logs:
+```bash
+kubectl logs -l app=dotnet-order-api
+kubectl logs -l app=dotnet-delivery-api
+```
 
 ### 3. Architecture Overview
 
@@ -69,11 +143,15 @@ dotnet-observability-cloudwatch-application-signals/
 
 ## Prerequisites
 
-- AWS CLI configured with appropriate credentials
-- .NET 8.0 SDK
-- Docker installed and running
-- kubectl and eksctl for Kubernetes
-- AWS account with CloudWatch Application Signals enabled
+- **AWS CLI** configured with appropriate credentials
+- **.NET 8.0 SDK** installed
+- **Docker** installed and running
+- **kubectl** and **eksctl** for Kubernetes management
+- **jq** command-line JSON processor
+- **AWS account** with CloudWatch Application Signals enabled
+- **Permissions** to create EKS clusters, DynamoDB tables, IAM roles, and ECR repositories
+
+> **Tip**: Run `./0-check-prerequisites.sh` to verify all prerequisites are met before starting deployment.
 
 ## Learning Objectives
 
