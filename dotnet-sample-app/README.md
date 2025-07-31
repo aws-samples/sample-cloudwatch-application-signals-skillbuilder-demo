@@ -6,7 +6,62 @@ This .NET sample demonstrates AWS CloudWatch Application Signals integration wit
 
 Try out this AWS SkillBuilder course to Monitor .NET Applications using CloudWatch Application Signals: [Monitor .NET Applications using Amazon CloudWatch Application Signals](https://skillbuilder.aws/learn/255DDEDPV5/monitor-net-applications-using-amazon-cloudwatch-application-signals/1WZ1NT16HJ)
 
+## Architecture Overview
+
+The .NET sample includes:
+
+- **ASP.NET Core microservices** with automatic instrumentation
+- **Amazon EKS deployment** with container orchestration
+- **DynamoDB integration** for data persistence
+- **CloudWatch Application Signals** for comprehensive observability
+- **OpenTelemetry integration** for distributed tracing
+
+## Key Features Demonstrated
+
+- Automatic service discovery and mapping
+- Distributed tracing across .NET microservices
+- Performance metrics and anomaly detection
+- Custom business metrics
+- Service Level Objectives (SLOs)
+- Integration with AWS services
+
+## Repository Structure
+
+The .NET sample repository contains:
+
+```
+dotnet-observability-cloudwatch-application-signals/
+├── src/                           # .NET application source code
+├── scripts/                       # Automated deployment scripts
+├── kubernetes/                    # Kubernetes manifests
+└── docs/                         # Documentation and diagrams
+```
+
+## Prerequisites
+
+- **AWS CLI** configured with appropriate credentials
+- **.NET 8.0 SDK** installed
+- **Docker** installed and running
+- **kubectl** and **eksctl** for Kubernetes management
+- **jq** command-line JSON processor
+- **AWS account** with CloudWatch Application Signals enabled
+- **Permissions** to create EKS clusters, DynamoDB tables, IAM roles, and ECR repositories
+
+
+## Learning Objectives
+
+After completing this sample, you will understand:
+
+- How to instrument .NET applications for CloudWatch Application Signals
+- ASP.NET Core observability patterns
+- Distributed tracing in containerized .NET environments
+- AWS EKS deployment with .NET applications
+- Integration between CloudWatch and OpenTelemetry in .NET
+
+
 ## Deployment Steps
+
+Since we have a comprehensive .NET sample already available, please use the existing repository by following the deployment steps.
 
 ### Clone the .NET Sample Repository
 
@@ -89,68 +144,6 @@ chmod +x scripts/cleanup-eks-env.sh
 ./scripts/cleanup-eks-env.sh
 ```
 
-## Architecture Overview
-
-The .NET sample includes:
-
-- **ASP.NET Core microservices** with automatic instrumentation
-- **Amazon EKS deployment** with container orchestration
-- **DynamoDB integration** for data persistence
-- **CloudWatch Application Signals** for comprehensive observability
-- **OpenTelemetry integration** for distributed tracing
-
-### 4. Key Features Demonstrated
-
-- Automatic service discovery and mapping
-- Distributed tracing across .NET microservices
-- Performance metrics and anomaly detection
-- Custom business metrics
-- Service Level Objectives (SLOs)
-- Integration with AWS services
-
-## Repository Structure
-
-The .NET sample repository contains:
-
-```
-dotnet-observability-cloudwatch-application-signals/
-├── src/                           # .NET application source code
-├── scripts/                       # Automated deployment scripts
-├── kubernetes/                    # Kubernetes manifests
-└── docs/                         # Documentation and diagrams
-```
-
-## Prerequisites
-
-- **AWS CLI** configured with appropriate credentials
-- **.NET 8.0 SDK** installed
-- **Docker** installed and running
-- **kubectl** and **eksctl** for Kubernetes management
-- **jq** command-line JSON processor
-- **AWS account** with CloudWatch Application Signals enabled
-- **Permissions** to create EKS clusters, DynamoDB tables, IAM roles, and ECR repositories
-
-> **Tip**: Run `./0-check-prerequisites.sh` to verify all prerequisites are met before starting deployment.
-
-## Learning Objectives
-
-After completing this sample, you will understand:
-
-- How to instrument .NET applications for CloudWatch Application Signals
-- ASP.NET Core observability patterns
-- Distributed tracing in containerized .NET environments
-- AWS EKS deployment with .NET applications
-- Integration between CloudWatch and OpenTelemetry in .NET
-
-## Additional Resources
-
-- **Repository**: [dotnet-observability-cloudwatch-application-signals](https://github.com/aws-samples/dotnet-observability-cloudwatch-application-signals)
-- **Scripts Documentation**: [Deployment Scripts](https://github.com/aws-samples/dotnet-observability-cloudwatch-application-signals/tree/main/scripts)
-- **AWS Documentation**: [CloudWatch Application Signals](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Application-Signals.html)
-
-## Getting Started
-
-Since we have a comprehensive .NET sample already available, please use the existing repository by following the deployment steps above.
 
 ## Troubleshooting
 
@@ -167,5 +160,11 @@ kubectl logs -l app=dotnet-delivery-api
 ```
 
 ---
+
+## Additional Resources
+
+- **Repository**: [dotnet-observability-cloudwatch-application-signals](https://github.com/aws-samples/dotnet-observability-cloudwatch-application-signals)
+- **Scripts Documentation**: [Deployment Scripts](https://github.com/aws-samples/dotnet-observability-cloudwatch-application-signals/tree/main/scripts)
+- **AWS Documentation**: [CloudWatch Application Signals](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Application-Signals.html)
 
 **Back to**: [Main Repository](../README.md)
