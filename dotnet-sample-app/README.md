@@ -6,18 +6,14 @@ This .NET sample demonstrates AWS CloudWatch Application Signals integration wit
 
 Try out this AWS SkillBuilder course to Monitor .NET Applications using CloudWatch Application Signals: [Monitor .NET Applications using Amazon CloudWatch Application Signals](https://skillbuilder.aws/learn/255DDEDPV5/monitor-net-applications-using-amazon-cloudwatch-application-signals/1WZ1NT16HJ)
 
-## Getting Started
+## Deployment Steps
 
-Since we have a comprehensive .NET sample already available, please use the existing repository:
-
-### 1. Clone the .NET Sample Repository
+### Clone the .NET Sample Repository
 
 ```bash
 git clone https://github.com/aws-samples/dotnet-observability-cloudwatch-application-signals.git
 cd dotnet-observability-cloudwatch-application-signals
 ```
-
-### 2. Deployment Steps
 
 #### Step 1: Create EKS Environment
 
@@ -93,21 +89,7 @@ chmod +x scripts/cleanup-eks-env.sh
 ./scripts/cleanup-eks-env.sh
 ```
 
-### Troubleshooting
-
-1. Check pod status:
-```bash
-kubectl get pods
-kubectl describe pod <pod-name>
-```
-
-2. View logs:
-```bash
-kubectl logs -l app=dotnet-order-api
-kubectl logs -l app=dotnet-delivery-api
-```
-
-### 3. Architecture Overview
+## Architecture Overview
 
 The .NET sample includes:
 
@@ -165,6 +147,24 @@ After completing this sample, you will understand:
 - **Repository**: [dotnet-observability-cloudwatch-application-signals](https://github.com/aws-samples/dotnet-observability-cloudwatch-application-signals)
 - **Scripts Documentation**: [Deployment Scripts](https://github.com/aws-samples/dotnet-observability-cloudwatch-application-signals/tree/main/scripts)
 - **AWS Documentation**: [CloudWatch Application Signals](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Application-Signals.html)
+
+## Getting Started
+
+Since we have a comprehensive .NET sample already available, please use the existing repository by following the deployment steps above.
+
+## Troubleshooting
+
+1. Check pod status:
+```bash
+kubectl get pods
+kubectl describe pod <pod-name>
+```
+
+2. View logs:
+```bash
+kubectl logs -l app=dotnet-order-api
+kubectl logs -l app=dotnet-delivery-api
+```
 
 ---
 
