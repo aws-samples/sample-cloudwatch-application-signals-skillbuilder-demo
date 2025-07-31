@@ -18,9 +18,9 @@ CloudWatch Application Signals automatically instruments your applications to co
 **Path**: `python-sample-app/` (planned)  
 **Description**: Flask/FastAPI microservices application demonstrating CloudWatch Application Signals with Python runtime.
 
-### 🚧 .NET
-**Status**: Coming Soon  
-**Path**: `dotnet-sample-app/` (planned)  
+### ✅ .NET
+**Status**: Available  
+**Path**: [`dotnet-sample-app/`](./dotnet-sample-app/)  
 **Description**: ASP.NET Core microservices application showcasing CloudWatch Application Signals integration.
 
 ### 🚧 Node.js
@@ -79,10 +79,11 @@ Each sample application showcases:
 
 ## Learning Path
 
-1. **Start with Java**: Most comprehensive example with detailed documentation
-2. **Explore other runtimes**: Compare implementation patterns across languages
-3. **Customize and extend**: Modify samples to match your use cases
-4. **Apply to production**: Use patterns learned in your own applications
+1. **Start with Java or .NET**: Both provide comprehensive examples with detailed documentation
+2. **Compare implementations**: Explore differences between Java Spring Boot and ASP.NET Core patterns
+3. **Explore other runtimes**: Compare implementation patterns across languages (Python and Node.js coming soon)
+4. **Customize and extend**: Modify samples to match your use cases
+5. **Apply to production**: Use patterns learned in your own applications
 
 ## Support and Feedback
 
