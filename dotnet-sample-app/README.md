@@ -4,6 +4,8 @@
 
 This .NET sample demonstrates AWS CloudWatch Application Signals integration with ASP.NET Core microservices.
 
+Try out this AWS SkillBuilder course to Monitor .NET Applications using CloudWatch Application Signals: [Monitor .NET Applications using Amazon CloudWatch Application Signals](https://skillbuilder.aws/learn/255DDEDPV5/monitor-net-applications-using-amazon-cloudwatch-application-signals/1WZ1NT16HJ)
+
 ## Getting Started
 
 Since we have a comprehensive .NET sample already available, please use the existing repository:
@@ -15,12 +17,7 @@ git clone https://github.com/aws-samples/dotnet-observability-cloudwatch-applica
 cd dotnet-observability-cloudwatch-application-signals
 ```
 
-### 2. AWS SkillBuilder Course
-
-Try out this AWS SkillBuilder course to Monitor .NET Applications using CloudWatch Application Signals:
-[Monitor .NET Applications using Amazon CloudWatch Application Signals](https://skillbuilder.aws/learn/255DDEDPV5/monitor-net-applications-using-amazon-cloudwatch-application-signals/1WZ1NT16HJ)
-
-### 3. Deployment Steps
+### 2. Deployment Steps
 
 #### Step 1: Create EKS Environment
 
