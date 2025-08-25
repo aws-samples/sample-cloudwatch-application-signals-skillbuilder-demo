@@ -13,9 +13,9 @@ CloudWatch Application Signals automatically instruments your applications to co
 **Path**: [`java-sample-app/`](./java-sample-app/)  
 **Description**: Spring Boot microservices application with Order API and Delivery API, deployed on Amazon EKS with DynamoDB integration.
 
-### 🚧 Python
-**Status**: Coming Soon  
-**Path**: `python-sample-app/` (planned)  
+### ✅ Python
+**Status**: Available  
+**Path**: [`python-sample-app/`](./python-sample-app/)  
 **Description**: Flask/FastAPI microservices application demonstrating CloudWatch Application Signals with Python runtime.
 
 ### ✅ .NET
