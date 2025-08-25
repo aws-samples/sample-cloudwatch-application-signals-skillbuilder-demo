@@ -7,7 +7,7 @@ gunicorn==21.2.0
 
 # Database ORM and MySQL connector
 SQLAlchemy==2.0.23
-PyMySQL==1.1.0
+PyMySQL==1.1.1
 
 # Configuration management
 python-decouple==3.8
