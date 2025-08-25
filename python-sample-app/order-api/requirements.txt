@@ -1,0 +1,15 @@
+# Web framework
+fastapi==0.104.1
+uvicorn[standard]==0.24.0
+
+# HTTP client for Delivery API calls
+httpx==0.25.2
+
+# Data validation
+pydantic==2.5.0
+
+# Configuration management
+python-decouple==3.8
+
+# Logging
+structlog==23.2.0
