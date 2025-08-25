@@ -3,7 +3,7 @@ Flask==3.0.0
 Werkzeug==3.0.1
 
 # WSGI server
-gunicorn==21.2.0
+gunicorn==23.0.0
 
 # Database ORM and MySQL connector
 SQLAlchemy==2.0.23
