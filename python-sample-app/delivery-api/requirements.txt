@@ -1,6 +1,6 @@
 # Web framework
 Flask==3.0.0
-Werkzeug==3.0.1
+Werkzeug==3.0.6
 
 # WSGI server
 gunicorn==21.2.0
