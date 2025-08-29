@@ -1,0 +1,81 @@
+# Docker Compose for local development and testing
+# This file is for testing the Docker configurations locally
+version: '3.8'
+
+services:
+  order-api:
+    build:
+      context: ./order-api
+      dockerfile: Dockerfile
+      platform: linux/amd64
+    ports:
+      - "8080:8080"
+    environment:
+      - NODE_ENV=development
+      - HOST=0.0.0.0
+      - PORT=8080
+      - DELIVERY_API_URL=http://delivery-api:5000
+      - LOG_LEVEL=info
+      - OTEL_SERVICE_NAME=nodejs-order-api
+      - OTEL_RESOURCE_ATTRIBUTES=service.name=nodejs-order-api,service.version=1.0
+      - OTEL_NODE_ENABLED_INSTRUMENTATIONS=http,express,fs,dns,net
+      - OTEL_NODE_LOG_CORRELATION=true
+    depends_on:
+      - delivery-api
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8080/api/orders/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+
+  delivery-api:
+    build:
+      context: ./delivery-api
+      dockerfile: Dockerfile
+      platform: linux/amd64
+    ports:
+      - "5000:5000"
+    environment:
+      - NODE_ENV=development
+      - HOST=0.0.0.0
+      - PORT=5000
+      - MYSQL_HOST=mysql
+      - MYSQL_PORT=3306
+      - MYSQL_DATABASE=orders_db
+      - MYSQL_USER=root
+      - MYSQL_PASSWORD=password
+      - AWS_REGION=us-east-1
+      - LOG_LEVEL=info
+      - OTEL_SERVICE_NAME=nodejs-delivery-api
+      - OTEL_RESOURCE_ATTRIBUTES=service.name=nodejs-delivery-api,service.version=1.0,service.namespace=delivery
+      - OTEL_NODE_ENABLED_INSTRUMENTATIONS=http,express,fs,dns,net,mysql2,sequelize
+      - OTEL_NODE_LOG_CORRELATION=true
+    depends_on:
+      - mysql
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:5000/api/delivery/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+
+  mysql:
+    image: mysql:8.0
+    platform: linux/amd64
+    environment:
+      - MYSQL_ROOT_PASSWORD=password
+      - MYSQL_DATABASE=orders_db
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+      start_period: 30s
+
+volumes:
+  mysql_data:

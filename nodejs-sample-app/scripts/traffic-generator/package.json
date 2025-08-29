@@ -1,0 +1,25 @@
+{
+  "name": "nodejs-traffic-generator",
+  "version": "2.0.0",
+  "description": "Traffic generator for Node.js CloudWatch Application Signals demo",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "nodejs",
+    "cloudwatch",
+    "application-signals",
+    "traffic-generator",
+    "load-testing"
+  ],
+  "author": "AWS",
+  "license": "MIT",
+  "dependencies": {
+    "axios": "^1.6.0"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}

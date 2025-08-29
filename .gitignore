@@ -1,0 +1,158 @@
+# IDE and editor settings
+.vscode/
+.kiro/
+
+# User-specific directories
+Users/
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Logs
+*.log
+logs/
+
+# Temporary files
+*.tmp
+*.temp
+.cache/
+
+# Node.js dependencies and build artifacts
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+lerna-debug.log*
+.pnpm-debug.log*
+
+# Runtime data
+pids
+*.pid
+*.seed
+*.pid.lock
+
+# Coverage directory used by tools like istanbul
+coverage/
+*.lcov
+
+# nyc test coverage
+.nyc_output
+
+# Grunt intermediate storage
+.grunt
+
+# Bower dependency directory
+bower_components
+
+# node-waf configuration
+.lock-wscript
+
+# Compiled binary addons
+build/Release
+
+# Dependency directories
+jspm_packages/
+
+# TypeScript cache
+*.tsbuildinfo
+
+# Optional npm cache directory
+.npm
+
+# Optional eslint cache
+.eslintcache
+
+# Microbundle cache
+.rpt2_cache/
+.rts2_cache_cjs/
+.rts2_cache_es/
+.rts2_cache_umd/
+
+# Optional REPL history
+.node_repl_history
+
+# Output of 'npm pack'
+*.tgz
+
+# Yarn Integrity file
+.yarn-integrity
+
+# dotenv environment variables file (keep .env.example)
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# parcel-bundler cache
+.parcel-cache
+
+# Next.js build output
+.next
+
+# Nuxt.js build / generate output
+.nuxt
+dist
+
+# Gatsby files
+.cache/
+public
+
+# Storybook build outputs
+.out
+.storybook-out
+
+# Temporary folders
+tmp/
+temp/
+
+# AWS and deployment specific
+.aws/
+*.pem
+*.key
+
+# Database files (keep migration scripts)
+*.db
+*.sqlite
+*.sqlite3
+
+# Python sample app specific exclusions
+python-sample-app/.cluster-config/
+python-sample-app/cluster.yaml
+python-sample-app/kubernetes/
+python-sample-app/scripts/traffic-generator/kubernetes/
+
+# Node.js sample app generated files
+nodejs-sample-app/.cluster-config/
+nodejs-sample-app/cluster.yaml
+nodejs-sample-app/kubernetes/
+nodejs-sample-app/scripts/traffic-generator/kubernetes/
+
+# Node.js sample app - exclude generated/runtime files but keep source
+nodejs-sample-app/**/node_modules/
+nodejs-sample-app/**/.env
+nodejs-sample-app/**/.env.local
+nodejs-sample-app/**/npm-debug.log*
+nodejs-sample-app/**/yarn-debug.log*
+nodejs-sample-app/**/yarn-error.log*
+nodejs-sample-app/**/coverage/
+nodejs-sample-app/**/.nyc_output/
+nodejs-sample-app/**/.eslintcache
+
+# Keep these essential files for nodejs-sample-app:
+# - package.json and package-lock.json (for dependencies)
+# - Dockerfile and .dockerignore (for containerization)
+# - src/ directories (source code)
+# - scripts/ directory (deployment scripts)
+# - kubernetes/ directory (k8s manifests)
+# - migrations/ directory (database migrations)
+# - .env.example files (environment templates)
+# - README.md, CONFIG.md, DOCKER.md (documentation)
+# - docker-compose.yml (local development)
+# - build-docker-images.sh (build script)

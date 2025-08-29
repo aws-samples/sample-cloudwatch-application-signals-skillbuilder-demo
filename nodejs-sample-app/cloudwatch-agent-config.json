@@ -1,0 +1,31 @@
+{
+  "logs": {
+    "metrics_collected": {
+      "application_signals": {
+        "rules": [
+          {
+            "rule_name": "keep_all_services",
+            "selectors": [
+              {
+                "dimension": "Service",
+                "match": "*"
+              }
+            ],
+            "action": "keep"
+          }
+        ],
+        "limiter": {
+          "disabled": false,
+          "drop_threshold": 500,
+          "rotation_interval": "1h",
+          "log_dropped_metrics": true
+        }
+      }
+    }
+  },
+  "traces": {
+    "traces_collected": {
+      "application_signals": {}
+    }
+  }
+}

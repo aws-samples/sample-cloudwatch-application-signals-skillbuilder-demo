@@ -1,0 +1,45 @@
+{
+  "name": "order-api",
+  "version": "1.0.0",
+  "description": "Node.js Order API for CloudWatch Application Signals demo",
+  "main": "src/app.js",
+  "scripts": {
+    "start": "node --require @aws/aws-distro-opentelemetry-node-autoinstrumentation/register --require ./src/instrumentation.js src/app.js",
+    "start:plain": "node src/app.js",
+    "dev": "nodemon --exec \"node --require @aws/aws-distro-opentelemetry-node-autoinstrumentation/register --require ./src/instrumentation.js\" src/app.js",
+    "dev:plain": "nodemon src/app.js",
+    "lint": "eslint src/",
+    "lint:fix": "eslint src/ --fix"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "axios": "^1.6.0",
+    "joi": "^17.11.0",
+    "dotenv": "^16.3.1",
+    "winston": "^3.11.0",
+    "cors": "^2.8.5",
+    "helmet": "^7.1.0",
+    "compression": "^1.7.4",
+    "uuid": "^9.0.1",
+    "@aws/aws-distro-opentelemetry-node-autoinstrumentation": "^0.4.0",
+    "@opentelemetry/api": "^1.7.0",
+    "@opentelemetry/instrumentation": "^0.45.0",
+    "@opentelemetry/instrumentation-winston": "^0.34.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1",
+    "eslint": "^8.54.0"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "keywords": [
+    "nodejs",
+    "express",
+    "cloudwatch",
+    "application-signals",
+    "aws"
+  ],
+  "author": "AWS",
+  "license": "MIT"
+}
