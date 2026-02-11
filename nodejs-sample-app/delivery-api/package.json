@@ -14,7 +14,7 @@
     "lint:fix": "eslint src/ --fix"
   },
   "dependencies": {
-    "@aws-sdk/client-ssm": "^3.450.0",
+    "@aws-sdk/client-ssm": "^3.987.0",
     "compression": "^1.7.4",
     "cors": "^2.8.5",
     "dotenv": "^16.3.1",
